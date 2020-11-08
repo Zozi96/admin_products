@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+    <div class="card">
+        <div class="card-body">
+            <a class="btn btn-primary btn-sm float-right" href="{% url 'add_Products' %}" role="button">Agregar
+                Lugar</a>
+            <table class="table table-hover table-responsive">
+                <thead class="table-dark">
+                <tr>
+                    <th>Producto</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                {% for p in products %}
+                    <tr>
+                        <td>{{ p.name_product }}</td>
+                        <td><a class="btn btn-info btn-sm" href="{% url 'edit_Products' p.id %}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'delete_Product' p.id%}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
