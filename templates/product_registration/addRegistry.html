@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} {% block content %}
+    <div class="col-8 col-md-6 offset-md-3">
+        <br>
+        <div class="row">
+            <div class="card">
+                <hr>
+                <h2 align="center"> Agregar Registro de Compra </h2>
+                <hr>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <br>
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-secundary" href={% url 'Registration' %}
+                               role="button">Regresar</a>&nbsp;
+                            <input type="submit" value="Guardar" class="btn btn-primary"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> {% endblock %}

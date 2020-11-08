@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+    <div class="card">
+        <div class="card-body">
+            <a class="btn btn-primary btn-sm float-right" href="{% url 'add_ShopPlaces' %}" role="button">Agregar
+                Registro</a>
+            <table class="table table-hover table-responsive">
+                <thead class="table-dark">
+                <tr>
+                    <th>Producto</th>
+                    <th>Lugar de Compra</th>
+                    <th>Precio</th>
+                    <th>Fecha</th>
+                </tr>
+                </thead>
+                {% for r in registros %}
+                    <tr>
+                        <td>{{ r.product }}</td>
+                        <td>{{ r.place }}</td>
+                        <td>{{ r.price }}</td>
+                        <td>{{ r.created_at }}</td>
+                        <td><a class="btn btn-info btn-sm" href="{% url 'edit_Registry' p.id %}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'delete_Registry' p.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

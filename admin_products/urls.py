@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from admin_products.views import index_view
+from product_registration.views import AddRegistryView, TableRegistrationView, DeleteRegistryView, EditRegistryView
 from products.views import AddProducts, TableProducts, EditProductView, DeleteProductView
 from shop_place.views import AddShopPlaceView, TableShopPlaceView, EditShopPlaceView, DeleteShopPlaceView
 
@@ -33,5 +34,10 @@ urlpatterns = [
     path('edit/<id>', EditProductView, name='edit_Products'),
     path('delete/<id>', DeleteProductView, name='delete_Product'),
     path('products/table_products', TableProducts, name='Products'),
+
+    path('registration/addRegistry', AddRegistryView, name="add_Registry"),
+    path('edit/<id>', EditRegistryView, name='edit_Registry'),
+    path('delete/<id>', DeleteRegistryView, name='delete_Registry'),
+    path('products/table_products', TableRegistrationView, name='Registration'),
 
 ]
