@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+    <div class="card">
+        <div class="card-body">
+            <a class="btn btn-primary btn-sm float-right" href="{% url 'add_ShopPlaces' %}" role="button">Agregar
+                Lugar</a>
+            <table class="table table-hover table-responsive">
+                <thead class="table-dark">
+                <tr>
+                    <th>Nombre de la plaza</th>
+                    <th>Ciudad</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                {% for p in places %}
+                    <tr>
+                        <td>{{ p.name_place }}</td>
+                        <td>{{ p.city }}</td>
+                        <td><a class="btn btn-info btn-sm" href="{% url 'edit_ShopPlaces' p.id %}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'delete_ShopPlaces' p.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
