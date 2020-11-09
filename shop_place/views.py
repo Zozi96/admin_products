@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import (
+    render, get_object_or_404, redirect
+)
 
 from shop_place.forms import AddShopPlaceForm
 from shop_place.models import ShopPlace

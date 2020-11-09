@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import (
+    render, redirect, get_object_or_404
+)
 
 from product_registration.forms import RegistryForm
 from product_registration.models import ProductRegistration
