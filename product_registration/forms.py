@@ -7,3 +7,7 @@ class RegistryForm(forms.ModelForm):
     class Meta:
         model = ProductRegistration
         fields = '__all__'
+
+        widgets = {
+            'date': forms.SelectDateWidget()
+        }
