@@ -1,9 +1,9 @@
 from django import forms
 
-from products.models import Product
+from product_registration.models import ProductRegistration
 
 
 class RegistryForm(forms.ModelForm):
     class Meta:
-        model = Product
-        exclude = ['created_at']
+        model = ProductRegistration
+        fields = '__all__'
