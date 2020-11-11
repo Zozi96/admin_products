@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import (
     render, get_object_or_404, redirect
 )
@@ -14,9 +15,8 @@ def AddShopPlaceView(request):
         form_shop_place = AddShopPlaceForm(data=request.POST)
         if form_shop_place.is_valid():
             form_shop_place.save()
+            messages.success(request, 'El lugar se ha guardado exitosamente')
             return redirect(to='ShopPlaces')
-        else:
-            data['form'] = form_shop_place
     return render(request, 'shop_places/addPlace.html', data)
 
 
@@ -29,6 +29,7 @@ def EditShopPlaceView(request, id):
         form_shop_place = AddShopPlaceForm(data=request.POST, instance=place)
         if form_shop_place.is_valid():
             form_shop_place.save()
+            messages.success(request, 'El lugar se ha guardado exitosamente')
             return redirect(to='ShopPlaces')
     return render(request, 'shop_places/editPlace.html', data)
 
@@ -36,6 +37,7 @@ def EditShopPlaceView(request, id):
 def DeleteShopPlaceView(request, id):
     place = get_object_or_404(ShopPlace, id=id)
     place.delete()
+    messages.success(request, 'Lugar de compra borrado')
     return redirect(to='ShopPlaces')
 
 
