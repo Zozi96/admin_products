@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body">
             <a class="btn btn-primary btn-sm float-right" href="{% url 'add_Products' %}" role="button">Agregar
-                Lugar</a>
+                Producto</a>
             <table class="table table-hover table-responsive">
                 <thead class="table-dark">
                 <tr>
@@ -10,11 +10,11 @@
                     <th>Opciones</th>
                 </tr>
                 </thead>
-                {% for p in products %}
+                {% for t in products %}
                     <tr>
-                        <td>{{ p.name_product }}</td>
-                        <td><a class="btn btn-info btn-sm" href="{% url 'edit_Products' p.id %}">Editar</a>
-                            <a class="btn btn-danger btn-sm" href="{% url 'delete_Product' p.id%}">Eliminar</a>
+                        <td>{{ t.name_product }}</td>
+                        <td><a class="btn btn-info btn-sm" href="{% url 'edit_Products' t.id %}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'delete_Product' t.id %}">Eliminar</a>
                         </td>
                     </tr>
                 {% endfor %}

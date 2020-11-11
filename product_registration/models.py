@@ -13,11 +13,10 @@ class ProductRegistration(models.Model):
     place = models.ForeignKey(
         ShopPlace,
         verbose_name='Lugar de compra',
-        on_delete=models.PROTECT
+        on_delete=models.CASCADE
     )
     price = models.DecimalField(
         verbose_name='Precio',
-        null=False, blank=False,
         max_digits=8,
         decimal_places=2,
         default=0.0

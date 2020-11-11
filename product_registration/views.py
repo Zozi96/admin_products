@@ -23,9 +23,9 @@ def EditRegistryView(request, id):
         'form': RegistryForm(instance=registry)
     }
     if request.method == 'POST':
-        form_shop_place = RegistryForm(data=request.POST, instance=registry)
-        if form_shop_place.is_valid():
-            form_shop_place.save()
+        form_registry = RegistryForm(data=request.POST, instance=registry)
+        if form_registry.is_valid():
+            form_registry.save()
             return redirect(to='Registration')
     return render(request, 'product_registration/editRegistry.html', data)
 

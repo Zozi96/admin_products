@@ -8,14 +8,10 @@ class ShopPlace(models.Model):
         unique=True,
         verbose_name='Nombre de la plaza'
     )
-    city = models.CharField(
-        max_length=90,
-        verbose_name='Ciudad'
-    )
 
     class Meta:
         verbose_name = 'Lugar de Compra'
         verbose_name_plural = 'Lugares de Compra'
 
     def __str__(self):
-        return f'{self.name_place} | {self.city}'
+        return f'{self.name_place}'

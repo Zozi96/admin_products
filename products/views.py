@@ -24,16 +24,15 @@ def EditProductView(request, id):
         'form': ProductForm(instance=product)
     }
     if request.method == 'POST':
-        form_shop_place = ProductForm(data=request.POST, instance=product)
-        if form_shop_place.is_valid():
-            form_shop_place.save()
-            return redirect(to='Products')
-    return render(request, 'products/editProducts.html', data)
+        form_edit_product = ProductForm(data=request.POST, instance=product)
+        if form_edit_product.is_valid():
+            form_edit_product.save()
+    return render(request, 'products/editProduct.html', data)
 
 
 def DeleteProductView(request, id):
-    place = get_object_or_404(Product, id=id)
-    place.delete()
+    product = get_object_or_404(Product, id=id)
+    product.delete()
     return redirect(to='Products')
 
 
